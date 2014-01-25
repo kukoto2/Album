@@ -1,66 +1,51 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
 var express = require('express'),
+    path = require('path'),
     fs = require('fs'),
-    passport = require('passport'),
-    logger = require('mean-logger');
-
-/**
- * Main application entry file.
- * Please note that the order of loading is important.
- */
-
-//Load configurations
-//Set the node enviornment variable if not set before
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
-//Initializing system variables 
-var config = require('./config/config'),
-    auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
 
-//Bootstrap db connection
-var db = mongoose.connect(config.db);
+/**
+ * Main application file
+ */
 
-//Bootstrap models
-var models_path = __dirname + '/app/models';
-var walk = function(path) {
-    fs.readdirSync(path).forEach(function(file) {
-        var newPath = path + '/' + file;
-        var stat = fs.statSync(newPath);
-        if (stat.isFile()) {
-            if (/(.*)\.(js$|coffee$)/.test(file)) {
-                require(newPath);
-            }
-        } else if (stat.isDirectory()) {
-            walk(newPath);
-        }
-    });
-};
-walk(models_path);
+// Default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-//bootstrap passport config
-require('./config/passport')(passport);
+// Application Config
+var config = require('./lib/config/config');
+
+// Connect to database
+var db = mongoose.connect(config.mongo.uri, config.mongo.options);
+
+// Bootstrap models
+var modelsPath = path.join(__dirname, 'lib/models');
+fs.readdirSync(modelsPath).forEach(function (file) {
+  require(modelsPath + '/' + file);
+});
+
+// Populate empty DB with sample data
+require('./lib/config/dummydata');
+  
+// Passport Configuration
+require('./lib/config/passport')();
 
 var app = express();
+var http = require('http'),
+	server = http.createServer(app);
 
-//express settings
-require('./config/express')(app, passport, db);
+global.io = require('socket.io').listen(server);
 
-//Bootstrap routes
-require('./config/routes')(app, passport, auth);
+// Express settings
+require('./lib/config/express')(app);
 
-//Start the app by listening on <port>
-var port = process.env.PORT || config.port;
-app.listen(port);
-console.log('Express app started on port ' + port);
+// Routing
+require('./lib/routes')(app);
 
-//Initializing logger
-logger.init(app, passport, mongoose);
+// Start server
+server.listen(config.port, function () {
+  console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
+});
 
-//expose app
-
+// Expose app
 exports = module.exports = app;

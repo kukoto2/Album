@@ -160,9 +160,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app\controllers\articles.js" />
+    <Content Include="App\app\controllers\images.js" />
     <Content Include="App\app\controllers\index.js" />
     <Content Include="App\app\controllers\users.js" />
     <Content Include="App\app\models\article.js" />
+    <Content Include="App\app\models\image.js" />
     <Content Include="App\app\models\user.js" />
     <Content Include="App\config\config.js" />
     <Content Include="App\config\env\all.js" />
@@ -197,28 +199,27 @@
     <Content Include="App\public\js\app.js" />
     <Content Include="App\public\js\config.js" />
     <Content Include="App\public\js\controllers\articles.js" />
+    <Content Include="App\public\js\controllers\images.js" />
     <Content Include="App\public\js\controllers\header.js" />
     <Content Include="App\public\js\controllers\index.js" />
     <Content Include="App\public\js\directives.js" />
     <Content Include="App\public\js\filters.js" />
     <Content Include="App\public\js\init.js" />
     <Content Include="App\public\js\services\articles.js" />
+    <Content Include="App\public\js\services\images.js" />
     <Content Include="App\public\js\services\global.js" />
     <Content Include="App\public\robots.txt" />
     <Content Include="App\public\views\articles\create.html" />
     <Content Include="App\public\views\articles\edit.html" />
     <Content Include="App\public\views\articles\list.html" />
     <Content Include="App\public\views\articles\view.html" />
+    <Content Include="App\public\views\images\create.html" />
+    <Content Include="App\public\views\images\edit.html" />
+    <Content Include="App\public\views\images\list.html" />
+    <Content Include="App\public\views\images\view.html" />
     <Content Include="App\public\views\header.html" />
     <Content Include="App\public\views\index.html" />
     <Content Include="App\server.js" />
-    <Content Include="App\test\karma\karma.conf.js" />
-    <Content Include="App\test\karma\unit\controllers\articles.spec.js" />
-    <Content Include="App\test\karma\unit\controllers\headers.spec.js" />
-    <Content Include="App\test\karma\unit\controllers\index.spec.js" />
-    <Content Include="App\test\mocha\article\model.js" />
-    <Content Include="App\test\mocha\user\model.js" />
-    <Content Include="App\.bowerrc" />
     <Content Include="App\app\views\404.jade" />
     <Content Include="App\app\views\500.jade" />
     <Content Include="App\app\views\includes\foot.jade" />
@@ -228,10 +229,6 @@
     <Content Include="App\app\views\users\auth.jade" />
     <Content Include="App\app\views\users\signin.jade" />
     <Content Include="App\app\views\users\signup.jade" />
-    <Content Include="App\bin\ChangeConfig.ps1" />
-    <Content Include="App\bin\download.ps1" />
-    <Content Include="App\bin\node.cmd" />
-    <Content Include="App\bin\setup_web.cmd" />
     <Content Include="App\bower.json" />
     <Content Include="App\package.json" />
     <Content Include="Web.config" />
