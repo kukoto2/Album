@@ -36,6 +36,10 @@ angular.module('angularAppApp', [
         templateUrl: 'partials/gallery',
         controller: 'GalleryCtrl'
       })
+      .when('/modify/:title', {
+          templateUrl: 'partials/modify',
+          controller: 'ModifyCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

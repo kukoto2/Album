@@ -5,28 +5,15 @@ angular.module('angularAppApp')
     $scope.successAlerts = [];
     $scope.errorAlerts = [];
 
-    $scope.filter = function(){
-        $scope.canvas = new fabric.Canvas('c');
-        var imgElement = document.getElementById('newImage');
-        var imgInstance = new fabric.Image(imgElement, {
-            left: 100,
-            opacity: 0.45
-        });
-        $scope.canvas.add(imgInstance);
-
-    }
-    $scope.saveCanvas = function () {
-        $http.post('/uploads/saveVersion', { newImage: $scope.canvas.toDataURL('jpg'), title:'yohoho'});
-    }
-	$scope.listFiles = function () {
-			$http.get('/uploads/getFile').success(function(files) {
-			    $scope.files = [];
-			    angular.forEach(files, function (file) {
-			        file.pathToImage = '../../pictures/' + file.name;
-			        $scope.files.push(file);
-			    });
-    	});
-	};
+	  $scope.listFiles = function () {
+			  $http.get('/uploads/getFile').success(function(files) {
+			      $scope.files = [];
+			      angular.forEach(files, function (file) {
+			          file.pathToImage = '../../pictures/' + file.name;
+			          $scope.files.push(file);
+			      });
+    	  });
+	  };
 
     $scope.downloadFile = function () {
     	window.open('/uploads/downloadFile/' + this.file.name);
@@ -60,15 +47,15 @@ angular.module('angularAppApp')
     	return false;
     };
 
-    // Populate list on load
+
     $scope.listFiles();
 
-	var socket = io.connect('/uploadChannel');
-	socket.on('uploadOrDeleted', function (data) {
-		$scope.successAlerts.push(data);
-		$timeout(function(){
-			$scope.successAlerts.pop(data);
-		}, 2000);
-		$scope.listFiles();
-	});
-  });
+	  var socket = io.connect('/uploadChannel');
+	  socket.on('uploadOrDeleted', function (data) {
+		  $scope.successAlerts.push(data);
+		  $timeout(function(){
+			  $scope.successAlerts.pop(data);
+		  }, 2000);
+		  $scope.listFiles();
+	  });
+});

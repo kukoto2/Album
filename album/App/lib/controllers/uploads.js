@@ -16,7 +16,7 @@ exports.saveVersion = function (req, res) {
     fs.writeFileSync('data.' + ext, buffer);
     fs.writeFile(newPath, buffer, function (err) {
         if (err) throw err;
-        Picture.create({ owner: userId, name: imageName }, function (err, pic) {
+        Picture.create({ owner: userId, name: imageName, origName: req.body.origName }, function (err, pic) {
             if (err) console.log('Failed to save image data to DB!');
         });
     });
@@ -57,6 +57,18 @@ exports.getFile = function (req, res) {
 	Picture.find({ owner: req.user._id }, function (err, pics) {
 		return res.json(pics);
 	});
+};
+
+exports.getFileByName = function (req, res) {
+  Picture.find({ owner: req.user._id, name: req.params.file }, function (err, pic) {
+    return res.json(pic[0]);
+  });
+};
+
+exports.getFilesByOrigName = function (req, res) {
+  Picture.find({ owner: req.user._id, origName: req.params.file }, function (err, pics) {
+    return res.json(pics);
+  });
 };
 
 exports.downloadFile = function (req, res, next) {

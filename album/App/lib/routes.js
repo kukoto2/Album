@@ -24,7 +24,9 @@ module.exports = function(app) {
   app.post('/api/session', session.login);
   app.del('/api/session', session.logout);
 
-  app.get('/uploads/getFile', uploads.getFile);
+  app.get('/uploads/getFile', uploads.getFile); 
+  app.get('/uploads/getFileByName/:file', uploads.getFileByName);
+  app.get('/uploads/getFileByOrigName/:file', uploads.getFilesByOrigName);
   app.get('/uploads/downloadFile/:file(*)', uploads.downloadFile);
   app.post('/uploads/fileupload', uploads.fileUpload);
   app.post('/uploads/deleteFile/:file(*)', uploads.deleteFile);

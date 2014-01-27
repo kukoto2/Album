@@ -1,0 +1,27 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<br />
+<div>
+  <img ng-src="{{file.pathToImage}}" image-resize image-height="200" id="image"/>
+          {{file.name}}
+  Write file's title: <input ng-model="title"/>
+</div>
+<button ng-click="filter()">Click!</button>
+<button ng-click="saveCanvas()">Save!</button>
+<canvas id="c"></canvas>
+<div class="row">
+	<div class="col-sm-12">
+		<h3>File list</h3>
+		<ul class="list-group">
+			<li class="list-group-item" style="height: 200px;" ng-repeat="version in files">
+        <img ng-src="{{version.pathToImage}}" image-resize image-height="200" />
+        {{version.name}}
+        <div class="pull-right">
+          <button type="button"  class="btn btn-danger btn-sm"><a ng-href="modify/{{file.name}}">Play with this picture!</a></button>
+					<button type="button" ng-click="downloadFile()" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
+					<button type="button" ng-click="deleteFile()" class="btn btn-danger btn-sm">Delete</button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

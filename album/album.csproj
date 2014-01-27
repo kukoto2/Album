@@ -170,6 +170,7 @@
     <Content Include="App\app\pictures\OceanWaves.jpg" />
     <Content Include="App\app\robots.txt" />
     <Content Include="App\app\scripts\app.js" />
+    <Content Include="App\app\scripts\controllers\modify.js" />
     <Content Include="App\app\scripts\controllers\gallery.js" />
     <Content Include="App\app\scripts\controllers\login.js" />
     <Content Include="App\app\scripts\controllers\main.js" />
@@ -189,6 +190,7 @@
     <Content Include="App\app\styles\main.css" />
     <Content Include="App\app\views\404.html" />
     <Content Include="App\app\views\index.html" />
+    <Content Include="App\app\views\partials\modify.html" />
     <Content Include="App\app\views\partials\gallery.html" />
     <Content Include="App\app\views\partials\login.html" />
     <Content Include="App\app\views\partials\main.html" />
