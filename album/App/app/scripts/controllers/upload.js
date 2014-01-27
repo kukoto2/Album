@@ -1,15 +1,30 @@
 'use strict';
-
 angular.module('angularAppApp')
   .controller('UploadCtrl', function ($scope, $http, $timeout, User, Auth) {
   	document.title = "Uploads";
-
     $scope.successAlerts = [];
     $scope.errorAlerts = [];
 
+    $scope.filter = function(){
+        $scope.canvas = new fabric.Canvas('c');
+        var imgElement = document.getElementById('newImage');
+        var imgInstance = new fabric.Image(imgElement, {
+            left: 100,
+            opacity: 0.45
+        });
+        $scope.canvas.add(imgInstance);
+
+    }
+    $scope.saveCanvas = function () {
+        $http.post('/uploads/saveVersion', { newImage: $scope.canvas.toDataURL('jpg'), title:'yohoho'});
+    }
 	$scope.listFiles = function () {
 			$http.get('/uploads/getFile').success(function(files) {
-      		$scope.files = files;
+			    $scope.files = [];
+			    angular.forEach(files, function (file) {
+			        file.pathToImage = '../../pictures/' + file.name;
+			        $scope.files.push(file);
+			    });
     	});
 	};
 

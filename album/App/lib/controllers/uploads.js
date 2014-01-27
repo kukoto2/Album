@@ -4,6 +4,25 @@ var mongoose = require('mongoose'),
     Picture = mongoose.model('Picture'),
     fs = require('fs');
 
+exports.saveVersion = function (req, res) {
+    var userId = req.user._id,
+        regex = /^data:.+\/(.+);base64,(.*)$/,
+        matches = req.body.newImage.match(regex),
+        ext = matches[1],
+        data = matches[2],
+        imageName = req.body.title + '.' + ext,
+        newPath = "./app/pictures/" + imageName,
+        buffer = new Buffer(data, 'base64');
+    fs.writeFileSync('data.' + ext, buffer);
+    fs.writeFile(newPath, buffer, function (err) {
+        if (err) throw err;
+        Picture.create({ owner: userId, name: imageName }, function (err, pic) {
+            if (err) console.log('Failed to save image data to DB!');
+        });
+    });
+    res.send(200);
+};
+
 exports.fileUpload = function(req, res) {
 	fs.readFile(req.files.displayImage.path, function (err, data) {
 		var userId = req.user._id;

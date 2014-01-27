@@ -29,6 +29,7 @@ module.exports = function(app) {
   app.post('/uploads/fileupload', uploads.fileUpload);
   app.post('/uploads/deleteFile/:file(*)', uploads.deleteFile);
 
+  app.post('/uploads/saveVersion', uploads.saveVersion);
   // All other routes to use Angular routing in app/scripts/app.js
   app.get('/partials/*', index.partials);
   app.get('/*', middleware.setUserCookie, index.index);

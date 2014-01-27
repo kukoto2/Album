@@ -1,5 +1,4 @@
 <div ng-include="'partials/navbar.html'"></div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<form class="form" id="uploadForm" name="form" enctype="multipart/form-data" method="post" >
@@ -10,12 +9,18 @@
 	</div>
 </div>
 <br />
+<button ng-click="filter()">Click!</button>
+<button ng-click="saveCanvas()">Save!</button>
+<canvas id="c"></canvas>
+
 <div class="row">
 	<div class="col-sm-12">
 		<h3>File list</h3>
 		<ul class="list-group">
-			<li class="list-group-item" style="height: 50px;" ng-repeat="file in files">
-				{{ file.name }}
+			<li class="list-group-item" style="height: 200px;" ng-repeat="file in files">
+				{{file.name}}
+                    <img ng-src="{{file.pathToImage}}" id="newImage"image-resize image-height="200" />
+
 				<div class="pull-right">
 					<button type="button" ng-click="downloadFile()" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
 					<button type="button" ng-click="deleteFile()" class="btn btn-danger btn-sm">Delete</button>
