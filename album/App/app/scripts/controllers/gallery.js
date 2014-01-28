@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
   .controller('GalleryCtrl', function ($scope, $http) {
   	document.title = "Gallery";
 

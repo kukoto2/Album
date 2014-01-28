@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp', [
+angular.module('album', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -11,8 +11,8 @@ angular.module('angularAppApp', [
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+        templateUrl: 'partials/gallery',
+        controller: 'GalleryCtrl'
       })
       .when('/upload', {
         templateUrl: 'partials/upload',
@@ -31,10 +31,6 @@ angular.module('angularAppApp', [
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
         authenticate: true
-      })
-      .when('/gallery', {
-        templateUrl: 'partials/gallery',
-        controller: 'GalleryCtrl'
       })
       .when('/modify/:title', {
           templateUrl: 'partials/modify',

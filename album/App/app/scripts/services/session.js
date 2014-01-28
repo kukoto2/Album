@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
   .factory('Session', function ($resource) {
     return $resource('/api/session/');
   });

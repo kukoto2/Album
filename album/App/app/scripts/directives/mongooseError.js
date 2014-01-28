@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
 
   /**
    * Removes server error when user updates input

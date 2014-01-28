@@ -1,13 +1,10 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }, {
       'title': 'Gallery',
-      'link': '/gallery'
+      'link': '/'
     }, {
       'title': 'Upload',
       'link': '/upload'

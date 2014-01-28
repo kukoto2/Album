@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
     .factory('myService', function($q, $rootScope) {
         return {
             multipart: function(out) {

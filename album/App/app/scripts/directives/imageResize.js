@@ -1,4 +1,4 @@
-﻿angular.module('angularAppApp').directive("imageResize", [
+﻿angular.module('album').directive("imageResize", [
   "$parse", function ($parse) {
       return {
           link: function (scope, elm, attrs) {

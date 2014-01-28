@@ -1,5 +1,5 @@
 'use strict';
-angular.module('angularAppApp')
+angular.module('album')
   .controller('UploadCtrl', function ($scope, $http, $timeout, User, Auth) {
   	document.title = "Uploads";
     $scope.successAlerts = [];

@@ -1,5 +1,5 @@
 'use strict';
-angular.module('angularAppApp')
+angular.module('album')
   .controller('ModifyCtrl', function ($scope, $http, $timeout, $routeParams, User, Auth) {
     document.title = "Modify";
     

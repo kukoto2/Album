@@ -173,7 +173,6 @@
     <Content Include="App\app\scripts\controllers\modify.js" />
     <Content Include="App\app\scripts\controllers\gallery.js" />
     <Content Include="App\app\scripts\controllers\login.js" />
-    <Content Include="App\app\scripts\controllers\main.js" />
     <Content Include="App\app\scripts\controllers\navbar.js" />
     <Content Include="App\app\scripts\controllers\settings.js" />
     <Content Include="App\app\scripts\controllers\signup.js" />
@@ -193,7 +192,6 @@
     <Content Include="App\app\views\partials\modify.html" />
     <Content Include="App\app\views\partials\gallery.html" />
     <Content Include="App\app\views\partials\login.html" />
-    <Content Include="App\app\views\partials\main.html" />
     <Content Include="App\app\views\partials\navbar.html" />
     <Content Include="App\app\views\partials\settings.html" />
     <Content Include="App\app\views\partials\signup.html" />
@@ -202,14 +200,12 @@
     <Content Include="App\karma-e2e.conf.js" />
     <Content Include="App\karma.conf.js" />
     <Content Include="App\lib\config\config.js" />
-    <Content Include="App\lib\config\dummydata.js" />
     <Content Include="App\lib\config\env\all.js" />
     <Content Include="App\lib\config\env\development.js" />
     <Content Include="App\lib\config\env\production.js" />
     <Content Include="App\lib\config\env\test.js" />
     <Content Include="App\lib\config\express.js" />
     <Content Include="App\lib\config\passport.js" />
-    <Content Include="App\lib\controllers\api.js" />
     <Content Include="App\lib\controllers\index.js" />
     <Content Include="App\lib\controllers\session.js" />
     <Content Include="App\lib\controllers\uploads.js" />
@@ -217,12 +213,9 @@
     <Content Include="App\lib\controllers\users.js" />
     <Content Include="App\lib\middleware.js" />
     <Content Include="App\lib\models\picture.js" />
-    <Content Include="App\lib\models\thing.js" />
     <Content Include="App\lib\models\user.js" />
     <Content Include="App\lib\routes.js" />
     <Content Include="App\server.js" />
-    <Content Include="App\test\runner.html" />
-    <Content Include="App\test\spec\controllers\main.js" />
     <Content Include="App\uploads\.gitignore" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -234,12 +227,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app\.buildignore" />
-    <Content Include="App\app\.htaccess" />
     <Content Include="App\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App\app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="App\app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="App\lib\.jshintrc" />
-    <Content Include="App\test\.jshintrc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

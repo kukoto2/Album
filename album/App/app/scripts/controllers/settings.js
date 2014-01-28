@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('album')
   .controller('SettingsCtrl', function ($scope, User, Auth) {
     document.title = "Settings";
 
