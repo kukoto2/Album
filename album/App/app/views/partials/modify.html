@@ -17,9 +17,9 @@
         <img ng-src="{{version.pathToImage}}" image-resize image-height="200" />
         {{version.name}}
         <div class="pull-right">
-          <button type="button"  class="btn btn-danger btn-sm"><a ng-href="modify/{{file.name}}">Play with this picture!</a></button>
-					<button type="button" ng-click="downloadFile()" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
-					<button type="button" ng-click="deleteFile()" class="btn btn-danger btn-sm">Delete</button>
+          <button type="button"  class="btn btn-danger btn-sm"><a ng-href="modify/{{version.name}}">Play with this picture!</a></button>
+					<button type="button" ng-click="downloadFile(version)" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
+					<button type="button" ng-click="deleteFile(version)" class="btn btn-danger btn-sm">Delete</button>
 				</div>
 			</li>
 		</ul>

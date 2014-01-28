@@ -87,7 +87,10 @@ exports.downloadFile = function (req, res, next) {
 exports.deleteFile = function (req, res) {
 	var file = "./app/pictures/" + req.params.file;
 	fs.unlink(file, function (err) {
-		if(err) console.log("error deleting!");
+	  if (err) {
+	    console.log("error deleting!");
+	    console.log(err);
+	  }
 		Picture.findOneAndRemove({ owner: req.session.passport.user, name: req.params.file }, function (err) {
 			if(err) console.log('Delete from db failed!');
 		});

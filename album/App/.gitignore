@@ -10,3 +10,4 @@ heroku
 dist
 *.sublime-project
 *.sublime-workspace
+../obj/Debug

@@ -15,14 +15,15 @@ angular.module('angularAppApp')
     	  });
 	  };
 
-    $scope.downloadFile = function () {
-    	window.open('/uploads/downloadFile/' + this.file.name);
-    };
+	  $scope.downloadFile = function (file) {
+	    window.open('/uploads/downloadFile/' + file.name);
+	  };
 
-    $scope.deleteFile = function () {
-    	$http.post("/uploads/deleteFile/" + this.file.name).success(function(data) {
-    	});
-    };
+	  $scope.deleteFile = function (file) {
+	    $http.post("/uploads/deleteFile/" + file.name).success(function (data) {
+	      $scope.listFiles();
+	    });
+	  };
 
     $scope.uploadFile = function () {
     	var img_data = new FormData($("#uploadForm")[0]);
