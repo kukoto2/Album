@@ -5,8 +5,8 @@ angular.module('album', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ngAnimate',
-  'ngTouch'
+  'ngTouch',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

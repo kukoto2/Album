@@ -180,10 +180,13 @@
     <Content Include="App\app\scripts\directives\imageResize.js" />
     <Content Include="App\app\scripts\directives\mongooseError.js" />
     <Content Include="App\app\scripts\fabric.js" />
+    <Content Include="App\app\scripts\selection-model.min.js" />
     <Content Include="App\app\scripts\services\auth.js" />
     <Content Include="App\app\scripts\services\fileUpload.js" />
     <Content Include="App\app\scripts\services\session.js" />
     <Content Include="App\app\scripts\services\user.js" />
+    <Content Include="App\app\scripts\ui-bootstrap-0.9.0.min.js" />
+    <Content Include="App\app\scripts\ui-bootstrap-tpls-0.9.0.min.js" />
     <Content Include="App\app\styles\bahamas-beach-wallpapers.jpg" />
     <Content Include="App\app\styles\beach.jpeg" />
     <Content Include="App\app\styles\main.css" />

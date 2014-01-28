@@ -1,29 +1,30 @@
 <div ng-include="'partials/navbar.html'"></div>
-<div class="row">
-	<div class="col-sm-12">
-		<form class="form" id="uploadForm" name="form" enctype="multipart/form-data" method="post" >
-		  <input type="file" name="displayImage" id="displayImage">
-		  <br />
-		  <button class="btn btn-default" ng-click="uploadFile()">Upload</button>
-		</form>
-	</div>
-</div>
-<br />
+
+<form class="form form-group " id="uploadForm" name="form" enctype="multipart/form-data" method="post">
+  <button class="btn btn-info" ng-click="uploadFile()">Upload</button>
+  <div class="col-sm-5">
+    <input type="file" name="displayImage" id="File1" class="form-control" title="Choose file">
+  </div>
+</form>
 
 <div class="row">
 	<div class="col-sm-12">
 		<h3>File list</h3>
-		<ul class="list-group">
-			<li class="list-group-item" style="height: 200px;" ng-repeat="file in files">
-          <img ng-src="{{file.pathToImage}}" image-resize image-height="200" />
-          {{file.name}}
-				<div class="pull-right">
-          <button type="button"  class="btn btn-danger btn-sm"><a ng-href="modify/{{file.name}}">Play with this picture!</a></button>
-					<button type="button" ng-click="downloadFile(file)" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
-					<button type="button" ng-click="deleteFile(file)" class="btn btn-danger btn-sm">Delete</button>
-				</div>
-			</li>
-		</ul>
+    <ul class="media-list">
+      <li class="media"  ng-repeat="file in files">
+        <a class="pull-left" href="#">
+          <img ng-src="{{file.pathToImage}}" image-resize image-height="100" class="media-object"/>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">{{file.name.substr(0, file.name.lastIndexOf('.'))}}</h4>
+          <ul class="nav nav-pills">
+            <li ><a  ng-href="modify/{{file.name}}" class="btn">Play with this picture!</a></li>
+            <li><a href="/upload" class="btn" ng-click="downloadFile(file)">Download</a></li>
+            <li><a href="/upload" class="btn"ng-click="deleteFile(file)">Delete</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
 	</div>
 </div>
 <div class="row">
