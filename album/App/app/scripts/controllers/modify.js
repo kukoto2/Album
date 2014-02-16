@@ -3,8 +3,6 @@ angular.module('album')
   .controller('ModifyCtrl', function ($scope, $http, $timeout, $routeParams, User, Auth) {
     $scope.canvas = new fabric.Canvas('c');
     $scope.f = fabric.Image.filters;
-    
-    //$scope.grayscaleIsChecked = false;
 
     function applyFilter(index, filter) {
       var obj = $scope.canvas.getActiveObject();

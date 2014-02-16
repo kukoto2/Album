@@ -6,13 +6,15 @@ angular.module('album')
     $scope.errorAlerts = [];
 
 	  $scope.listFiles = function () {
-			  $http.get('/uploads/getFile').success(function(files) {
-			      $scope.files = [];
-			      angular.forEach(files, function (file) {
-			          file.pathToImage = '../../pictures/' + file.name;
-			          $scope.files.push(file);
-			      });
-    	  });
+	    $http.get('/uploads/getFile').success(function (files) {
+	      var variations = _.filter(files, 'origName');
+	      var mainFiles = _.reject(files, 'origName');
+	      $scope.files = [];
+	      angular.forEach(mainFiles, function (file) {
+	        file.mainFileVariations = _.where(variations, { 'origName': file.name });
+	        $scope.files.push(file);
+	      });
+    	});
 	  };
 
 	  $scope.downloadFile = function (file) {

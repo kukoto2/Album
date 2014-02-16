@@ -6,13 +6,9 @@ var express = require('express'),
     passport = require('passport'),
     mongoStore = require('connect-mongo')(express);
 
-/**
- * Express configuration
- */
 module.exports = function(app) {
   app.configure('development', function(){
 
-    // Disable caching of scripts for easier testing
     app.use(function noCache(req, res, next) {
       if (req.url.indexOf('/scripts/') === 0) {
         res.header('Cache-Control', 'no-cache, no-store, must-revalidate');
