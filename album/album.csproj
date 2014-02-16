@@ -159,16 +159,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\app\favicon.ico" />
     <Content Include="App\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="App\app\images\next.png" />
     <Content Include="App\app\images\prev.png" />
     <Content Include="App\app\images\yeoman.png" />
     <Content Include="App\app\pictures\Chrysanthemum.jpg" />
-    <Content Include="App\app\pictures\images.jpg" />
-    <Content Include="App\app\pictures\ME.gif" />
-    <Content Include="App\app\pictures\OceanWaves.jpg" />
-    <Content Include="App\app\robots.txt" />
     <Content Include="App\app\scripts\app.js" />
     <Content Include="App\app\scripts\controllers\modify.js" />
     <Content Include="App\app\scripts\controllers\gallery.js" />
@@ -179,8 +174,6 @@
     <Content Include="App\app\scripts\controllers\upload.js" />
     <Content Include="App\app\scripts\directives\imageResize.js" />
     <Content Include="App\app\scripts\directives\mongooseError.js" />
-    <Content Include="App\app\scripts\fabric.js" />
-    <Content Include="App\app\scripts\selection-model.min.js" />
     <Content Include="App\app\scripts\services\auth.js" />
     <Content Include="App\app\scripts\services\fileUpload.js" />
     <Content Include="App\app\scripts\services\session.js" />
@@ -200,13 +193,9 @@
     <Content Include="App\app\views\partials\signup.html" />
     <Content Include="App\app\views\partials\upload.html" />
     <Content Include="App\Gruntfile.js" />
-    <Content Include="App\karma-e2e.conf.js" />
-    <Content Include="App\karma.conf.js" />
     <Content Include="App\lib\config\config.js" />
     <Content Include="App\lib\config\env\all.js" />
     <Content Include="App\lib\config\env\development.js" />
-    <Content Include="App\lib\config\env\production.js" />
-    <Content Include="App\lib\config\env\test.js" />
     <Content Include="App\lib\config\express.js" />
     <Content Include="App\lib\config\passport.js" />
     <Content Include="App\lib\controllers\index.js" />

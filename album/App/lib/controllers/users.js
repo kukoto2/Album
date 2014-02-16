@@ -4,16 +4,12 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     passport = require('passport');
 
-/**
- * Create user
- */
 exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
 
   newUser.save(function(err) {
     if (err) {
-      // Manually provide our own message for 'unique' validation errors, can't do it from schema
       if(err.errors.email.type === 'Value is not unique.') {
         err.errors.email.type = 'The specified email address is already in use.';
       }
@@ -28,9 +24,6 @@ exports.create = function (req, res, next) {
   });
 };
 
-/**
- *  Get profile of specified user
- */
 exports.show = function (req, res, next) {
   var userId = req.params.id;
 
@@ -45,9 +38,6 @@ exports.show = function (req, res, next) {
   });
 };
 
-/**
- * Change password
- */
 exports.changePassword = function(req, res, next) {
   var userId = req.user._id;
   var oldPass = String(req.body.oldPassword);
@@ -70,9 +60,6 @@ exports.changePassword = function(req, res, next) {
   });
 };
 
-/**
- * Get current user
- */
 exports.me = function(req, res) {
   res.json(req.user || null);
 };

@@ -8,14 +8,6 @@ angular.module('album')
     $cookieStore.remove('user');
 
     return {
-
-      /**
-       * Authenticate user
-       * 
-       * @param  {Object}   user     - login info
-       * @param  {Function} callback - optional
-       * @return {Promise}            
-       */
       login: function(user, callback) {
         var cb = callback || angular.noop;
 
@@ -29,13 +21,6 @@ angular.module('album')
           return cb(err);
         }).$promise;
       },
-
-      /**
-       * Unauthenticate user
-       * 
-       * @param  {Function} callback - optional
-       * @return {Promise}           
-       */
       logout: function(callback) {
         var cb = callback || angular.noop;
 
@@ -47,14 +32,6 @@ angular.module('album')
             return cb(err);
           }).$promise;
       },
-
-      /**
-       * Create a new user
-       * 
-       * @param  {Object}   user     - user info
-       * @param  {Function} callback - optional
-       * @return {Promise}            
-       */
       createUser: function(user, callback) {
         var cb = callback || angular.noop;
 
@@ -67,15 +44,6 @@ angular.module('album')
             return cb(err);
           }).$promise;
       },
-
-      /**
-       * Change password
-       * 
-       * @param  {String}   oldPassword 
-       * @param  {String}   newPassword 
-       * @param  {Function} callback    - optional
-       * @return {Promise}              
-       */
       changePassword: function(oldPassword, newPassword, callback) {
         var cb = callback || angular.noop;
 
@@ -88,21 +56,9 @@ angular.module('album')
           return cb(err);
         }).$promise;
       },
-
-      /**
-       * Gets all available info on authenticated user
-       * 
-       * @return {Object} user
-       */
       currentUser: function() {
         return User.get();
       },
-
-      /**
-       * Simple check to see if a user is logged in
-       * 
-       * @return {Boolean}
-       */
       isLoggedIn: function() {
         var user = $rootScope.currentUser;
         return !!user;

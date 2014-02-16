@@ -15,15 +15,14 @@ module.exports = function() {
   passport.deserializeUser(function(id, done) {
     User.findOne({
       _id: id
-    }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+    }, '-salt -hashedPassword', function(err, user) {
       done(err, user);
     });
   });
 
-  // add other strategies for more authentication flexibility
   passport.use(new LocalStrategy({
       usernameField: 'email',
-      passwordField: 'password' // this is the virtual field on the model
+      passwordField: 'password'
     },
     function(email, password, done) {
       User.findOne({

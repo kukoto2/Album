@@ -7,9 +7,6 @@ var index = require('./controllers'),
 
 var middleware = require('./middleware');
 
-/**
- * Application routes
- */
 module.exports = function(app) {
 
   // Server API Routes

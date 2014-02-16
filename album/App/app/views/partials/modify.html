@@ -1,23 +1,49 @@
 <div ng-include="'partials/navbar.html'"></div>
 
 <br />
-<div>
-  <img ng-src="{{file.pathToImage}}" image-resize image-height="200" id="image"/>
-          {{file.name}}
-  Write file's title: <input ng-model="title"/>
+<div class="span9">
+  <div class="pull-left">
+    <div class="input-group col-md-13">
+      <input type="checkbox" ng-click="grayscale()" ng-model="grayscaleIsChecked">Grayscale</input>
+      <input type="checkbox" ng-click="invert()" ng-model="invertIsChecked">Invert</input>
+      <input type="checkbox" ng-click="sepia()" ng-model="sepiaIsChecked">Sepia</input>
+      <input type="checkbox" ng-click="sharpen()" ng-model="sharpenIsChecked">Sharpen</input>
+      <input type="checkbox" ng-click="embos()" ng-model="embosIsChecked">Embos</input>
+    </div>
+    <div class="input-group col-md-13">
+      <input type="checkbox" ng-click="pixelate()" ng-model="pixelateIsChecked" >Pixelate</input>
+      <label>Value: <input type="range" ng-model="pixelateRange" ng-click="pixelate()" value="4" min="2" max="20"></label>
+    </div>
+    <div class="input-group col-md-13">
+      <input type="checkbox" ng-click="brightness()" ng-model="brightnessIsChecked">Brightness</input>
+      <label>Value: <input type="range" ng-model="brightnessRange" ng-click="brightness()" value="4" min="2" max="20"></label>
+    </div>
+    <div class="input-group col-md-13">
+      <input type="checkbox" ng-click="noise()" ng-model="noiseIsChecked">Noise</input>
+      <label>Value: <input type="range" ng-model="noiseRange" ng-click="noise()" value="4" min="2" max="100"></label>
+    </div>
+    <div class="input-group col-md-13">
+      <input type="checkbox" ng-click="blur()" ng-model="blurIsChecked">Blur</input>
+      <label>Value: <input type="range" ng-model="blurRange" ng-click="blur()" value="4" min="2" max="20"></label>
+    </div>
+    <div>
+      <canvas id="c" height="200px"></canvas>
+      Write file's title: <input ng-model="title"/>
+      <button ng-click="saveCanvas()"ng-disabled="!title" class="btn btn-primary btn-sm">Save</button>
+    </div>
+  </div>
+  <div class="pull-right">
+    <img ng-src="{{file.pathToImage}}" image-resize image-height="300" id="image"/>
+  </div>
 </div>
-<button ng-click="filter()">Click!</button>
-<button ng-click="saveCanvas()">Save!</button>
-<canvas id="c"></canvas>
 <div class="row">
 	<div class="col-sm-12">
-		<h3>File list</h3>
+		<h3>Variations</h3>
 		<ul class="list-group">
 			<li class="list-group-item" style="height: 200px;" ng-repeat="version in files">
         <img ng-src="{{version.pathToImage}}" image-resize image-height="200" />
         {{version.name}}
         <div class="pull-right">
-          <button type="button"  class="btn btn-danger btn-sm"><a ng-href="modify/{{version.name}}">Play with this picture!</a></button>
 					<button type="button" ng-click="downloadFile(version)" class="btn btn-primary btn-sm" style="margin-right: 5px;">Download</button>
 					<button type="button" ng-click="deleteFile(version)" class="btn btn-danger btn-sm">Delete</button>
 				</div>

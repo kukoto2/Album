@@ -1,3 +1,5 @@
 packages/
 album/App/node_modules/
 album/bin/
+album/obj/
+album/obj/Debug

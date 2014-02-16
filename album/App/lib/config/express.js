@@ -11,7 +11,6 @@ var express = require('express'),
  */
 module.exports = function(app) {
   app.configure('development', function(){
-    app.use(require('connect-livereload')());
 
     // Disable caching of scripts for easier testing
     app.use(function noCache(req, res, next) {
@@ -30,7 +29,6 @@ module.exports = function(app) {
   });
 
   app.configure('production', function(){
-    app.use(express.favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
     app.set('views', config.root + '/views');
   });
@@ -56,7 +54,6 @@ module.exports = function(app) {
     app.use(passport.initialize());
     app.use(passport.session());
     
-    // Router needs to be last
     app.use(app.router);
   });
 };
