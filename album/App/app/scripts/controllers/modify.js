@@ -6,8 +6,10 @@ angular.module('album')
 
     function applyFilter(index, filter) {
       var obj = $scope.canvas.getActiveObject();
-      obj.filters[index] = filter;
-      obj.applyFilters($scope.canvas.renderAll.bind($scope.canvas));
+      if (obj) {
+        obj.filters[index] = filter;
+        obj.applyFilters($scope.canvas.renderAll.bind($scope.canvas));
+      }
     }
 
     function applyFilterValue(index, prop, value) {
@@ -132,10 +134,14 @@ angular.module('album')
         fabric.Image.fromURL(file.pathToImage, function (imgObj) {
           imgObj.set({
             height: 200,
-            width: (200 * imgObj.width) / imgObj.height
+            width: (200 * imgObj.width) / imgObj.height,
+            hasControls: false,
+            selectable: false,
+            hasBorders: false
           });
           $scope.canvas.add(imgObj);
           $scope.canvas.calcOffset();
+          $scope.canvas.setActiveObject(imgObj);
         });
       });
     };

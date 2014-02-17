@@ -28,12 +28,12 @@
     </div>
     <div>
       <canvas id="c" height="200px"></canvas>
-      Write file's title: <input ng-model="title"/>
+      Title: <input ng-model="title"/>
       <button ng-click="saveCanvas()"ng-disabled="!title" class="btn btn-primary btn-sm">Save</button>
     </div>
   </div>
   <div class="pull-right">
-    <img ng-src="{{file.pathToImage}}" image-resize image-height="300" id="image"/>
+    <img ng-src="{{file.pathToImage}}" image-resize image-height="200" id="image"/>
   </div>
 </div>
 <div class="row">

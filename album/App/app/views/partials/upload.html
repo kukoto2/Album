@@ -15,6 +15,7 @@
         <div class="pull-left">
           <img ng-src="{{'../../pictures/' + file.name}}" image-resize image-height="100" class="media-object"/>
           <a  ng-href="modify/{{file.name}}" class="btn">Modify</a>
+          <a href="/upload" class="btn"ng-click="deleteFile(file)" ng-show="file.mainFileVariations.length === 0 ">Delete</a>
         </div>
         <div class="col-sm-2" ng-repeat="variation in file.mainFileVariations">
           <img ng-src="{{'../../pictures/' + variation.name}}" image-resize image-height="80" class="media-object"/>

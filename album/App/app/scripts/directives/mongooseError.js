@@ -2,9 +2,6 @@
 
 angular.module('album')
 
-  /**
-   * Removes server error when user updates input
-   */
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

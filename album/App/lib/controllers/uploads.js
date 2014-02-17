@@ -33,7 +33,6 @@ exports.fileUpload = function(req, res) {
 			res.redirect("/upload");
 			res.end();
 		} else {
-			// var newPath = __dirname + "/uploads/" + imageName;
 			var newPath = "./app/pictures/" + imageName;
 			fs.writeFile(newPath, data, function (err) {
 				if (err) throw err;
@@ -102,5 +101,4 @@ exports.deleteFile = function (req, res) {
 };
 
 var uploads = global.io.of('/uploadChannel').on('connection', function(socket) {
-	// console.log("a user has connected to the 'chat' namespace");
 });

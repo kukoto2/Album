@@ -24,11 +24,6 @@ module.exports = function(app) {
     app.set('views', config.root + '/app/views');
   });
 
-  app.configure('production', function(){
-    app.use(express.static(path.join(config.root, 'public')));
-    app.set('views', config.root + '/views');
-  });
-
   app.configure(function(){
     app.engine('html', require('ejs').renderFile);
     app.set('view engine', 'html');
@@ -39,7 +34,7 @@ module.exports = function(app) {
 
     // Persist sessions with mongoStore
     app.use(express.session({
-      secret: 'angular-fullstack secret',
+      secret: 'secret',
       store: new mongoStore({
         url: config.mongo.uri,
         collection: 'sessions'

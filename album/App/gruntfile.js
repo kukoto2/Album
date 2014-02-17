@@ -1,21 +1,14 @@
-// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 
 
 module.exports = function (grunt) {
 
-  // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-
-  // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  // Define the configuration for all the tasks
   grunt.initConfig({
 
-    // Project settings
     yeoman: {
-      // configurable paths
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
     },
@@ -94,7 +87,6 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
     autoprefixer: {
       options: {
         browsers: ['last 1 version']
@@ -109,7 +101,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
     'bower-install': {
       app: {
         html: '<%= yeoman.app %>/views/index.html',
@@ -117,7 +108,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Renames files for browser caching purposes
     rev: {
       dist: {
         files: {
@@ -131,9 +121,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
     useminPrepare: {
       html: ['<%= yeoman.app %>/views/index.html',
              '<%= yeoman.app %>/views/index.jade'],
@@ -142,7 +129,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/views/{,*/}*.html',
              '<%= yeoman.dist %>/views/{,*/}*.jade'],
@@ -152,7 +138,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // The following *-min tasks produce minified files in the dist folder
     imagemin: {
       dist: {
         files: [{
@@ -177,12 +162,6 @@ module.exports = function (grunt) {
 
     htmlmin: {
       dist: {
-        options: {
-          //collapseWhitespace: true,
-          //collapseBooleanAttributes: true,
-          //removeCommentsFromCDATA: true,
-          //removeOptionalTags: true
-        },
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/views',
@@ -205,14 +184,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/views/*.html']
-      }
-    },
-
-    // Copies remaining files to places other tasks can use
     copy: {
       dist: {
         files: [{
@@ -256,7 +227,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
         'copy:styles'
@@ -271,32 +241,6 @@ module.exports = function (grunt) {
         'htmlmin'
       ]
     },
-
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
   });
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
@@ -312,7 +256,6 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
     'rev',

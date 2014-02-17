@@ -10,4 +10,4 @@ dist
 *.sublime-workspace
 uploads
 lib/controllers/uploads
-app/pictures
+app/pictures/**

@@ -39,7 +39,6 @@ angular.module('album')
 			    contentType: false,
 			    processData: false,
 	    		success: function (upload) {
-	    			//$scope.listFiles();
 					document.getElementById("uploadForm").reset();
 	    		}
 	    	});

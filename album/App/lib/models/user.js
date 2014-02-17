@@ -43,7 +43,6 @@ UserSchema
     };
   });
 
-// Public profile information
 UserSchema
   .virtual('profile')
   .get(function() {
@@ -93,7 +92,6 @@ UserSchema.methods = {
   },
 
   encryptPassword: function(password, salt) {
-    // hash the password using our new salt
 	return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
   }
 };
